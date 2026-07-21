@@ -141,7 +141,7 @@ See [LICENSE](https://github.com/nawf-dev/MT_MANAGER/blob/main/LICENSE) for deta
 - **File Size:** ~50 KB
 - **Platform:** MetaTrader 5
 - **Language:** MQL5
-- **License:** Freeware (Closed Source)
+- **License:** Freeware (Source-Available - see [LICENSE](LICENSE))
 
 ---
 

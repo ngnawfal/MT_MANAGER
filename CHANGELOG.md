@@ -5,6 +5,38 @@ All notable changes to MT_MANAGER will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-07-21
+
+### Added
+- **Position Filter**
+  - `MagicNumber` input to manage only positions opened by a specific EA/magic number (default `0` keeps the v1.0.0 behavior of managing all positions on the symbol)
+- **Break Even Automation**
+  - `EnableBreakEven`, `BreakEvenTriggerPips`, `BreakEvenOffsetPips` inputs
+  - Moves SL to entry (plus a configurable offset) once a position reaches a target profit in pips; SL only ever moves in the favorable direction
+- **Trailing Stop**
+  - `EnableTrailingStop`, `TrailingStartPips`, `TrailingStepPips` inputs
+  - Keeps SL a fixed distance behind price once a position is far enough in profit
+- **Max Spread Filter**
+  - `EnableMaxSpreadFilter`, `MaxSpreadPips` inputs
+  - Skips (and later retries) Auto Entry while the spread is wider than the configured threshold
+- **Sound Alerts**
+  - `EnableSoundAlerts` input
+  - Audible confirmation on Close All, Auto Close, Auto Entry, and Break Even events
+- **Live Floating P/L**
+  - New info panel line showing the real, current profit/loss of open positions (previously the panel only showed a hypothetical profit/loss *if* TP/SL were hit)
+- **Status Line**
+  - New info panel line summarizing which automations (Magic filter, Break Even, Trailing Stop, Auto Close, Auto Entry, Spread Filter) are currently active
+
+### Fixed
+- Pip calculations (`TP Pips` / `SL Pips`, and `EntryTPPips` / `EntrySLPips` for Auto Entry) were hardcoded for 5-digit brokers and produced 10x wrong values on 4-digit or 2-digit quote symbols; pip size is now derived from the symbol's actual digit count
+- TP/SL modifications that were too close to the current market price failed silently with a generic broker error; they are now validated against the symbol's stop/freeze level beforehand and skipped with a clear, actionable log message
+
+### Changed
+- Refactored the info panel's label layout to use a running vertical offset instead of hand-tuned magic-number coordinates, removing the root cause of the previously reported panel text overlap issue
+- Source code (`MT_MANAGER.mq5`) is now part of this repository again; see [README's License section](README.md#-license) and [LICENSE](LICENSE) for updated terms (still freeware, still no redistribution/resale, but source-available rather than closed-source)
+
+---
+
 ## [1.0.0] - 2025-02-07
 
 ### Added
@@ -37,7 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Documentation**
   - Comprehensive README.md
-  - MIT License file
+  - Freeware License file
   - Changelog file
   - Installation guide
   - Usage scenarios
@@ -69,15 +101,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned for v2.0
-- Break Even automation
-- Trailing Stop
 - Partial Close functionality
-- Magic Number filtering
 - Account info panel
 - One-click trading
 - Session time indicator
 - Max drawdown protection
-- Sound alerts
 - Email/Telegram notifications
 - Daily statistics
 - Correlation monitor
@@ -86,6 +114,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History Summary
 
+- **v1.1.0** (2026-07-21) - Break Even, Trailing Stop, Magic Number filter, spread filter, sound alerts, live floating P/L, pip-calculation fix
 - **v1.0.0** (2025-02-07) - Initial stable release with core features
 
 ---

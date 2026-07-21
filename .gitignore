@@ -1,10 +1,6 @@
 # MetaTrader 5 Files
 *.log
 
-# Source code (not open source)
-*.mq5
-*.mqh
-
 # Compiled files (upload to GitHub Release instead)
 *.ex5
 *.compiled

@@ -1,5 +1,11 @@
 # INSTRUCTIONS FOR UPLOADING TO GITHUB
 
+> **Note:** This documents the original one-time migration to a compiled-release
+> workflow. `MT_MANAGER.mq5` is tracked in this repository again (source-available,
+> see [LICENSE](LICENSE)); only the compiled `.ex5` binary is still kept out of
+> git history and attached to GitHub Releases instead. Steps below still apply
+> whenever you want to publish a new compiled build.
+
 ## Step 1: Compile MT_MANAGER.mq5 to .ex5
 
 1. Open **MetaEditor** (Press F4 in MT5)
@@ -8,32 +14,22 @@
 4. Make sure you see: **"0 errors, 0 warnings"**
 5. The compiled file `MT_MANAGER.ex5` will be created in the same folder
 
-## Step 2: Copy .ex5 file to project folder
+## Step 2: Push the source
+
+`MT_MANAGER.mq5` is tracked in git, so commit and push it like any other file:
 
 ```bash
-# The .ex5 file should now exist at:
-C:\Users\kaysa\OneDrive\Documents\ai_trade\MT_MANAGER.ex5
-```
-
-## Step 3: Add .ex5 to git and push
-
-Run these commands in terminal:
-
-```bash
-cd C:\Users\kaysa\OneDrive\Documents\ai_trade
-
-# Add the compiled file
-git add MT_MANAGER.ex5
-
-# Add updated .gitignore
-git add .gitignore
-
-# Commit
-git commit -m "Add compiled MT_MANAGER.ex5 (closed source)"
-
-# Push to GitHub
+git add MT_MANAGER.mq5
+git commit -m "Update MT_MANAGER.mq5"
 git push -u origin main
 ```
+
+## Step 3: Publish the compiled .ex5 via a GitHub Release
+
+`.ex5` files are intentionally excluded from git (see `.gitignore`) so compiled
+binaries don't bloat the repository's history. Instead, attach the freshly
+compiled `MT_MANAGER.ex5` to a GitHub Release — see
+[CREATE_RELEASE.md](CREATE_RELEASE.md) for the full step-by-step.
 
 ## Step 4: Update GitHub Repository Settings
 
@@ -68,18 +64,11 @@ metatrader
 https://github.com/nawf-dev/MT_MANAGER
 ```
 
-## Step 5: Edit README.md on GitHub
+## Step 5: Update README.md badges (already done)
 
-Replace this badge:
-```markdown
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-```
-
-With:
-```markdown
-[![License](https://img.shields.io/badge/License-Freeware-green.svg)](LICENSE)
-[![Download](https://img.shields.io/badge/Download-MT__MANAGER.ex5-blue)](https://github.com/nawf-dev/MT_MANAGER/raw/main/MT_MANAGER.ex5)
-```
+README.md already carries the current badge set (Freeware license, current
+version, download link to the latest Release). Only touch these again if the
+version bumps or the download link changes.
 
 ## Step 6: Create Release (Optional but Recommended)
 
@@ -118,11 +107,11 @@ Trading forex carries risk. Use at your own risk.
 ## Done! 🎉
 
 Your repo will now have:
-- ✅ Compiled .ex5 file (closed source)
+- ✅ Source code (`MT_MANAGER.mq5`, source-available under [LICENSE](LICENSE))
+- ✅ Compiled `.ex5` attached to the GitHub Release (not committed to git)
 - ✅ Full documentation (README.md)
 - ✅ SEO-optimized description
 - ✅ Professional presentation
-- ❌ No source code (.mq5 excluded)
 
 ---
 

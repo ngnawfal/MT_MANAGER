@@ -29,7 +29,7 @@ This project and everyone participating in it is governed by respect and profess
 
 ### Reporting Bugs
 
-Before creating bug reports, please check the [existing issues](https://github.com/yourusername/mt_manager/issues) to avoid duplicates.
+Before creating bug reports, please check the [existing issues](https://github.com/nawf-dev/MT_MANAGER/issues) to avoid duplicates.
 
 **How to submit a good bug report:**
 
@@ -85,7 +85,7 @@ Before creating bug reports, please check the [existing issues](https://github.c
 We love feature suggestions! Before creating a feature request:
 
 1. Check the [Roadmap](README.md#roadmap) to see if it's already planned
-2. Check [existing feature requests](https://github.com/yourusername/mt_manager/issues?q=label%3Aenhancement)
+2. Check [existing feature requests](https://github.com/nawf-dev/MT_MANAGER/issues?q=label%3Aenhancement)
 
 **How to suggest a feature:**
 
@@ -139,8 +139,8 @@ input int BreakEvenPips = 20;  // Move SL to entry after 20 pips profit
 
 2. **Clone your fork**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/mt_manager.git
-   cd mt_manager
+   git clone https://github.com/YOUR_USERNAME/MT_MANAGER.git
+   cd MT_MANAGER
    ```
 
 3. **Create a branch**
@@ -443,7 +443,7 @@ Pull requests will be reviewed based on:
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the MIT License.
+By contributing, you agree that your contributions will be licensed under this project's [Freeware License](LICENSE), the same terms that cover the rest of the codebase.
 
 ---
 
